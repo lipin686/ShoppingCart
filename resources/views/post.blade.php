@@ -5,9 +5,9 @@
 @section('sidebar')
     @parent
 
-    <p class="text-primary">This is appended to the master sidebar.</p>
+    <p class="text-primary">首頁</p>
 @endsection
 
 @section('content')
-    <p>This is my body content.</p>
+    <p>首頁內容</p>
 @endsection

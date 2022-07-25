@@ -7,13 +7,63 @@
     <body>
         @include('layouts.navbar')
         @section('sidebar')
-            <p>This is the master sidebar.</p>
+            <p>歡迎~ 此頁面為:</p>
         @show
 
         <div class="container">
             @yield('content')
         </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        <div class="container">
+            @yield('content')
+        </div>
+        
         @include('layouts.footer')
         @include('layouts.js')
+        
     </body>
 </html>
