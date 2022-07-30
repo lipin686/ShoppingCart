@@ -15,3 +15,7 @@
 //     return view('index');
 // });
 Route::get('/', 'IndexController@showProfile');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
