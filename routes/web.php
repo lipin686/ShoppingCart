@@ -15,6 +15,7 @@
 //     return view('index');
 // });
 Route::get('/', 'IndexController@showProfile');
+Route::get('/admin', 'AdminController@showProfile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
