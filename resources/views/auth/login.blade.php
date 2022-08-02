@@ -12,19 +12,19 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="name" type="name" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required  autofocus>
 
-                                @error('email')
+                                @error('name')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                                 @enderror
                             </div>
                         </div>
-
+                        
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
@@ -38,7 +38,22 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="captcha" class="col-md-4 col-form-label text-md-right">驗證碼</label>
 
+                            <div class="col-md-6">
+
+                                <input id="captcha" class="form-control{{ $errors->has('captcha') ? ' is-invalid' : '' }}" name="captcha" >
+
+                                <img class="thumbnail mt-3 mb-2" src="{{ captcha_src() }}" onclick="this.src='/captcha?'+Math.random()" title="點選圖片重新獲取驗證碼">
+
+                                @if ($errors->has('captcha'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('captcha') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <div class="col-md-6 offset-md-4">
                                 <div class="form-check">
@@ -64,10 +79,11 @@
                                 @endif
                             </div>
                         </div>
+
                     </form>
                     <div>
                         <a class="btn btn-link" href="{{ route('social','github') }}">使用github登入
-                    </div> 
+                    </div>
                     <div>
                         <a class="btn btn-link" href="{{ route('social','google') }}">使用google登入
                     </div>

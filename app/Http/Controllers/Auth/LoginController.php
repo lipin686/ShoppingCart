@@ -7,6 +7,7 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 
+use Illuminate\Validation\Validator;
 class LoginController extends Controller
 {
     /*
@@ -42,8 +43,24 @@ class LoginController extends Controller
     {
         return view('auth.login');
     }
+    public function username()
+    {
+        return 'name';
+    }
     public function loggedOut(Request $request)
     {
+
         return redirect('/login');
+    }
+    function validateLogin(Request $request)
+    {
+        $request->validate([
+            $this->username() => 'required|string',
+            'password' => 'required|string',
+            'captcha' => 'required|captcha',
+        ],[
+            'captcha.required' => '驗證碼不得為空，請輸入',
+            'captcha.captcha' => '驗證碼錯誤，請重新輸入',
+        ]);
     }
 }
