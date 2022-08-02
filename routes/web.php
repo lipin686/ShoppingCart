@@ -15,8 +15,15 @@
 //     return view('index');
 // });
 Route::get('/', 'IndexController@showProfile');
-Route::get('/admin', 'AdminController@showProfile');
+//Route::get('/admin', 'AdminController@showProfile');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+    
+Route::get( '/auth/{social}', 'Web\AuthenticationController@getSocialRedirect' )->name('social')
+    ->middleware('guest');
+
+Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCallback' )
+    ->middleware('guest');
