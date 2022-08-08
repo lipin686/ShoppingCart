@@ -21,17 +21,13 @@
 			<li class="nav-item active">
 				<a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
 			</li>
+		</ul>
+		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#">關於我</a>
+				<a class="nav-link" href="#">購物車</a>
 			</li>
-			<!-- .dropdown Navbar選項使用下拉式選單 -->
-			<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">作品集</a>
-				<!-- .dropdown-menu 下拉選單內容 -->
-				<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-					<a class="dropdown-item" href="#">網頁設計</a>
-					<a class="dropdown-item" href="#">平面設計</a>
-				</div>
+			<li class="nav-item">
+				<a class="nav-link" href="#">去逛逛</a>
 			</li>
 		</ul>
 		<ul class="navbar-nav ml-auto">
@@ -63,11 +59,11 @@
 		</div>
 		@endif -->
 
-		<form class="form-inline my-2 my-lg-0">
+		<!-- <form class="form-inline my-2 my-lg-0">
 			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
 			</button>
-		</form>
+		</form> -->
 	</div>
 
 </nav>

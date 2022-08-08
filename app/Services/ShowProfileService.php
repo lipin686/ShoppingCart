@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Services;
-
+use App\Models\Item;
 /**
  * Class InspiringService
  */
@@ -12,6 +12,7 @@ class ShowProfileService
      */
     public function showProfile()
     {
-        return view('index');
+        $items=Item::all();
+        return view('index',compact('items'));
     }
 }
