@@ -21,9 +21,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-    
 Route::get( '/auth/{social}', 'Web\AuthenticationController@getSocialRedirect' )->name('social')
     ->middleware('guest');
 
 Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCallback' )
     ->middleware('guest');
+
+Route::get('/view/{id}', 'CartController@index')->name('view');
+Route::get('/add_to_cart/{id}', 'CartController@getAddToCart')->name('getAddToCart');

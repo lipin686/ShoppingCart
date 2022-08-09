@@ -3,8 +3,8 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
 
 	<!-- .navbar-brand 左上LOGO位置 -->
-	<a class="navbar-brand" href="index.html">
-		<img src="images/cat.png" width="30" height="30" class="d-inline-block align-top" alt="">
+	<a class="navbar-brand" href="/">
+		<img src="{{asset('images/cat.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
 		<span class="h3 mx-1">杯波ㄟ亂來網頁</span>
 	</a>
 	<!-- .navbar-toggler 漢堡式選單按鈕 -->
@@ -16,12 +16,12 @@
 	<!-- .collapse.navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
 	<!-- 選單項目&漢堡式折疊選單 -->
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto">
-			<!-- active表示當前頁面 -->
+		<!-- <ul class="navbar-nav mr-auto">
+			 
 			<li class="nav-item active">
 				<a class="nav-link" href="#">首頁<span class="sr-only">(current)</span></a>
 			</li>
-		</ul>
+		</ul> -->
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="#">購物車</a>
@@ -29,8 +29,6 @@
 			<li class="nav-item">
 				<a class="nav-link" href="#">去逛逛</a>
 			</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
 			@guest
 			<li class="nav-item"><a class="nav-link" href="/login">登录</a></li>
 			@else
