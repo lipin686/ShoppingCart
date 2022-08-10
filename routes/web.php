@@ -29,3 +29,8 @@ Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCa
 
 Route::get('/view/{id}', 'CartController@index')->name('view');
 Route::get('/add_to_cart/{id}', 'CartController@getAddToCart')->name('getAddToCart');
+Route::get('/cart', 'CartController@cart')->name('cart');
+Route::get('/increase-one-item/{id}', 'CartController@increaseByOne');
+Route::get('/decrease-one-item/{id}', 'CartController@decreaseByOne');
+Route::get('/remove-item/{id}', 'CartController@removeItem');
+Route::get('/clear-cart', 'CartController@clearCart');

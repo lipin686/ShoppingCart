@@ -19,7 +19,7 @@
     }
 
     .btn-tinted {
-
+        line-height:45px;
         overflow: visible;
         outline: 0;
         background: #FFF0F5;
@@ -37,5 +37,23 @@
         font-size: 16px;
         height: 48px;
         padding: 0px 20px;
+    }
+
+    table tr,
+    table td {
+        text-align: center;
+    }
+
+    .circle {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        background-color: red;
+        border-radius: 50%;
+        
+    }
+
+    .circle span {
+        color:white;
     }
 </style>

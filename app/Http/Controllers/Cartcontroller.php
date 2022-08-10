@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Item;
+use App\Cart;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class Cartcontroller extends Controller
 {
@@ -16,11 +18,58 @@ class Cartcontroller extends Controller
     }
     public function getAddToCart($id)
     {
-        if(Auth::guest()){
+        Session::put('item_id',  $id);
+        if (Auth::guest()) {
             return redirect()->route('login');
-        }else{
-            return redirect()->route('view', $id);
+        } else {
+            $item = Item::findOrFail($id);
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->add($item, $item->id);
+            Session::put('cart', $cart);
+            return redirect()->route('view',$id);
         }
-        
+    }
+    public function cart()
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        return view('cart', [
+            'items' => $cart->items,
+            'totalPrice' => $cart->totalPrice,
+            'totalQty' => $cart->totalQty
+        ]);
+    }
+
+    public function increaseByOne($id)
+    {
+        $cart = new Cart(Session::get('cart'));
+        $cart->increaseByOne($id);
+        session()->put('cart', $cart);
+        return redirect()->action('CartController@cart');
+    }
+
+    public function decreaseByOne($id)
+    {
+        $cart = new Cart(Session::get('cart'));
+        $cart->decreaseByOne($id);
+        session()->put('cart', $cart);
+        return redirect()->action('CartController@cart');
+    }
+
+    public function removeItem($id)
+    {
+        $cart = new Cart(Session::get('cart'));
+        $cart->removeItem($id);
+        session()->put('cart', $cart);
+        return redirect()->action('CartController@cart');
+    }
+
+    public function clearCart()
+    {
+        if (session()->has('cart')) {
+            session()->forget('cart');
+        }
+        return redirect('/');
     }
 }

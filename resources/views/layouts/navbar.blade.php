@@ -24,7 +24,19 @@
 		</ul> -->
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
-				<a class="nav-link" href="#">購物車</a>
+				<a class="nav-link" href="/cart">購物車
+					<div class="circle "> 
+						<span class="p-2 ">
+							@if(session()->has('cart'))
+							{{session()->get('cart')->totalQty}}
+							@else
+							0
+							@endif
+						</span>
+					</div>
+
+				</a>
+
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="#">去逛逛</a>
