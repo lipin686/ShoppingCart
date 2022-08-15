@@ -39,7 +39,7 @@
 
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" href="#">去逛逛</a>
+				<a class="nav-link" href="/">去逛逛</a>
 			</li>
 			@guest
 			<li class="nav-item"><a class="nav-link" href="/login">登录</a></li>

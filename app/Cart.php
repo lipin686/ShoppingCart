@@ -4,14 +4,13 @@ namespace App;
 
 class Cart
 {
-    // items is an associative array
     public $items;
     public $totalQty = 0;
     public $totalPrice = 0;
 
     public function __construct($oldCart)
     {
-        if($oldCart) {
+        if ($oldCart) {
             $this->items      = $oldCart->items;
             $this->totalQty = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
@@ -20,70 +19,56 @@ class Cart
 
     public function add($item, $id)
     {
-        // empty state of storedItem (qty(0), price(item.price), item(object))
-        $storedItem = ['qty'=>0, 'price'=>$item->price, 'item'=>$item];
-        // check if cart has items
-        if($this->items) {
-            // check if cart has existing product
-            // if yes let storedItem = Cart Item
+        // 如果購物車沒有商品 設定該商品初始價錢等狀態
+        $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
+        // 如果購物車裡面已經有商品
+        if ($this->items) {
+            // 如果該商品已經在購物車拿出該商品放到storedItem
             if (array_key_exists($id, $this->items)) {
                 $storedItem = $this->items[$id];
             }
         }
-        // storedItem qty increase by one
+        // 把商品+1
         $storedItem['qty']++;
-        // storedItem price = current book [price] * storedItem qty
+        // 商品價格*數量
         $storedItem['price'] = $item->price * $storedItem['qty'];
-        // update current items with storedItem
+        // 把物件內的原商品狀態更新
         $this->items[$id] = $storedItem;
-        // update total Qty
+        // 更新總數量
         $this->totalQty++;
-        // update total Price
+        // 更新總價錢
         $this->totalPrice += $item->price;
     }
 
     public function increaseByOne($id)
     {
-        // Get item from items based on $id
-        // Increase item qty by one
         $this->items[$id]['qty']++;
-        // Update item price
-        
         $this->items[$id]['price'] += $this->items[$id]['item']['price'];
-        dd($this->items[$id]['item']['price']);
-        // Update totalqty
         $this->totalQty++;
-        // update total price
         $this->totalPrice += $this->items[$id]['item']['price'];
     }
 
     public function decreaseByOne($id)
     {
-        // Get item from items based on $id
-        // Increase item qty by one
         $this->items[$id]['qty']--;
-        // Update item price
         $this->items[$id]['price'] -= $this->items[$id]['item']['price'];
-        // Update totalqty
         $this->totalQty--;
-        // update total price
         $this->totalPrice -= $this->items[$id]['item']['price'];
-        // unset item if qty < 0
-        if($this->items[$id]['qty'] < 1) {
+        // 如果小於1等同沒有該商品 釋放該商品
+        if ($this->items[$id]['qty'] < 1) {
             unset($this->items[$id]);
         }
     }
 
     public function removeItem($id)
     {
-        // Get item from items based on $id
-        // Update totalqty
+        // 總數量減去商品數量
         $this->totalQty -= $this->items[$id]['qty'];
-        
-        // update total price
+
+        // 總價錢減商品價錢
         $this->totalPrice -=  $this->items[$id]['price'];
-        
-        // unset item
+
+        // 釋放商品
         unset($this->items[$id]);
     }
 }

@@ -8,7 +8,7 @@ use App\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
-class Cartcontroller extends Controller
+class CartController extends Controller
 {
     public function index($id)
     {

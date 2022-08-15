@@ -34,3 +34,7 @@ Route::get('/increase-one-item/{id}', 'CartController@increaseByOne');
 Route::get('/decrease-one-item/{id}', 'CartController@decreaseByOne');
 Route::get('/remove-item/{id}', 'CartController@removeItem');
 Route::get('/clear-cart', 'CartController@clearCart');
+
+Route::get('/order/new', 'OrderController@new');
+Route::get('/orders', 'OrderController@index');
+Route::post('/orders', 'OrderController@index');

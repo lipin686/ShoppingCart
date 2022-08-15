@@ -36,6 +36,6 @@ class CreateItemOrderTable extends Migration
             $table->dropForeign(['item_id']);
             $table->dropForeign(['order_id']);
         });
-        Schema::dropIfExists('item_orders');
+        Schema::dropIfExists('item_order');
     }
 }
