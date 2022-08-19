@@ -13,7 +13,6 @@ class CartController extends Controller
     public function index($id)
     {
         $item = Item::findOrFail($id);
-
         return view('view', compact('item'));
     }
     public function getAddToCart($id)
@@ -27,18 +26,22 @@ class CartController extends Controller
             $cart = new Cart($oldCart);
             $cart->add($item, $item->id);
             Session::put('cart', $cart);
-            return redirect()->route('view',$id);
+            return redirect()->route('view', $id);
         }
     }
     public function cart()
     {
-        $oldCart = Session::has('cart') ? Session::get('cart') : null;
-        $cart = new Cart($oldCart);
-        return view('cart', [
-            'items' => $cart->items,
-            'totalPrice' => $cart->totalPrice,
-            'totalQty' => $cart->totalQty
-        ]);
+        if (Auth::guest()) {
+            return redirect()->route('login');
+        } else {
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            return view('cart', [
+                'items' => $cart->items,
+                'totalPrice' => $cart->totalPrice,
+                'totalQty' => $cart->totalQty
+            ]);
+        }
     }
 
     public function increaseByOne($id)

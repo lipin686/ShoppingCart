@@ -39,6 +39,9 @@
 
 			</li>
 			<li class="nav-item">
+				<a class="nav-link" href="/orders">訂單</a>
+			</li>
+			<li class="nav-item">
 				<a class="nav-link" href="/">去逛逛</a>
 			</li>
 			@guest

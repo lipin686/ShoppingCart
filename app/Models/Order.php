@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Item;
 class Order extends Model
 {
-    protected $fillable=['user_id'];
+    //protected $table='orders';
+    protected $fillable=['user_id','name','phone','address','cart','comment'];
 
     // public function items(){
     //     return $this->belongsToMany(Item::class)->withTimestamps()->withPivot('qty');

@@ -37,4 +37,4 @@ Route::get('/clear-cart', 'CartController@clearCart');
 
 Route::get('/order/new', 'OrderController@new');
 Route::get('/orders', 'OrderController@index');
-Route::post('/orders', 'OrderController@index');
+Route::post('/orders', 'OrderController@store');

@@ -1,5 +1,7 @@
 @extends('layouts/master')
 
+@section('title', '購物車')
+
 @section('content')
 <section class="container">
     <div class="">
