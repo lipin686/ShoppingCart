@@ -45,6 +45,9 @@ class OrderController extends Controller
             'cart' => serialize($cart),
             'comment' => "",
         ]);
+        if (session()->has('cart')) {
+            session()->forget('cart');
+        }
         return redirect()->action('OrderController@index');
     }
 }
