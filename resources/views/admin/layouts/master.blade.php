@@ -1,21 +1,20 @@
-<html>
-    <head>
-        <title>App Name - @yield('title')</title>
-        @include('admin.layouts.header')
-        @include('admin.layouts.css')
-    </head>
-    <body>
-        @include('admin.layouts.navbar')
-        @section('sidebar')
-            <p>歡迎~ 此頁面為:</p>
-        @show
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
-        <div class="container">
+<head>
+    <title>{{ config('app.name') }}</title>
+    @include('admin.layouts.header')
+    @include('admin.layouts.css')
+</head>
+
+<body>
+    <div id="app">
+
+        @include('admin.layouts.css')
+        <main class="py-4">
             @yield('content')
-        </div>
-        
-        @include('admin.layouts.footer')
-        @include('admin.layouts.js')
-        
-    </body>
+        </main>
+    </div>
+</body>
+
 </html>

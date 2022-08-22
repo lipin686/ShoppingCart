@@ -15,8 +15,15 @@
 //     return view('index');
 // });
 Route::get('/', 'IndexController@showProfile');
-//Route::get('/admin', 'AdminController@showProfile');
+// Route::get('/admin', 'AdminController@showProfile');
 Auth::routes();
+
+Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin/login', 'Admin\LoginController@login');
+Route::get('admin/register', 'Admin\RegisterController@showRegistrationForm')->name('admin.register');
+Route::post('admin/register', 'Admin\RegisterController@register');
+Route::post('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+Route::get('admin', 'AdminController@index')->name('admin.home');
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
@@ -38,3 +45,4 @@ Route::get('/clear-cart', 'CartController@clearCart');
 Route::get('/order/new', 'OrderController@new');
 Route::get('/orders', 'OrderController@index');
 Route::post('/orders', 'OrderController@store');
+

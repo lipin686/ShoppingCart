@@ -1,13 +1,23 @@
 @extends('admin.layouts.master')
 
-@section('title', 'admin首頁')
-
-@section('sidebar')
-    @parent
-
-    <p class="text-primary">admin頁面</p>
-@endsection
-
 @section('content')
-    <p>admin首頁內容</p>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Admin Dashboard</div>
+
+                <div class="card-body">
+                    @if (session('status'))
+                    <div class="alert alert-success" role="alert">
+                        {{ session('status') }}
+                    </div>
+                    @endif
+
+                    You are logged in the admin dashboard!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
