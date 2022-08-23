@@ -21,7 +21,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+    use AuthenticatesUsers;     //直接引入trait 意思等於trait裡面的function 這裡也能用
 
     /**
      * Where to redirect users after login.
@@ -37,7 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('guest')->except('logout');   //Kernal內有定義guest別名的實際路徑
     }
     public function showLoginForm()
     {

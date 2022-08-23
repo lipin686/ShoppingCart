@@ -45,7 +45,7 @@
 				<a class="nav-link" href="/">去逛逛</a>
 			</li>
 			@guest
-			<li class="nav-item"><a class="nav-link" href="/login">登录</a></li>
+			<li class="nav-item"><a class="nav-link" href="/login">登入</a></li>
 			@else
 			<li class="nav-item dropdown">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

@@ -9,8 +9,9 @@
 @endsection
 
 @section('content')
+
 <div class="container ">
-    <div class="row row-cols-3 ">
+    <div class="row row-cols-3">
         @foreach ($items as $item)
         
         <a style='text-decoration: none;color: #000;' href='/view/{{$item->id}}'>

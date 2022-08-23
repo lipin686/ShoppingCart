@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function __construct()
     {
-        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:admin')->except('logout'); //Kernal內有定義guest別名的實際路徑
     }
 
     public function showLoginForm()
@@ -27,7 +27,10 @@ class LoginController extends Controller
     {
         return Auth::guard('admin');
     }
-
+    public function username()
+    {
+        return 'name';
+    }
     // 退出后跳转页面
     protected function loggedOut(Request $request)
     {

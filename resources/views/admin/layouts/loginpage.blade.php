@@ -8,12 +8,14 @@
 </head>
 
 <body>
-    @include('admin.layouts.navbar')
-    <div id="main">
-        @yield('content')
+   
+    <div id="app">
+       
+        <main class="py-4">
+            @yield('content')
+        </main>
 
     </div>
-    @include('admin.layouts.js')
 </body>
 
 </html>
