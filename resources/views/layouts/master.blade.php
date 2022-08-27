@@ -6,10 +6,7 @@
     </head>
     <body class='background'>
         @include('layouts.navbar')
-        @section('sidebar')
-            <p>歡迎~ 此頁面為:</p>
-        @show
-
+    
         <div class="container">
             @yield('content')
         </div>

@@ -2,15 +2,9 @@
 
 @section('title', '首頁')
 
-@section('sidebar')
-@parent
-
-<p class="text-primary">首頁</p>
-@endsection
-
 @section('content')
 
-<div class="container ">
+<div class="container pt-5">
     <div class="row row-cols-3">
         @foreach ($items as $item)
         

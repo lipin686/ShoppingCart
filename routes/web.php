@@ -30,10 +30,14 @@ Route::post('admin/register', 'Admin\RegisterController@register');
 Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
 
 //admin後台
-Route::get('/admin/users', 'Admin\UserController@index')->name('admin.user.index');
+//Route::get('/admin/users', 'Admin\UserController@index')->name('admin.user.index');
 Route::get('/admin/items', 'Admin\ItemController@index')->name('admin.item.index');
 Route::get('/admin/tags', 'Admin\TagController@index')->name('admin.tag.index');
 Route::get('/admin/orders', 'Admin\OrderController@index')->name('admin.order.index');
+Route::resource('/admin/users', 'Admin\UserController');
+Route::resource('/admin/items', 'Admin\ItemController');
+Route::resource('/admin/tags', 'Admin\TagController');
+Route::resource('/admin/orders', 'Admin\OrderController');
 
 //購物車
 Route::get('/view/{id}', 'CartController@index')->name('view');

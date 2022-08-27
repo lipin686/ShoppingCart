@@ -9,7 +9,7 @@
 @endsection
 
 @section('content')
-<div class="container bg-white">
+<div class="container pt-5 bg-white">
     <div class="row">
         <div class='col-6'>
             <div class="d-inline-block">

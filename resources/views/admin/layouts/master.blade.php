@@ -11,7 +11,6 @@
     @include('admin.layouts.navbar')
     <div id="main">
         @yield('content')
-
     </div>
     @include('admin.layouts.js')
 </body>
