@@ -3,11 +3,12 @@
 @section('content')
 <div class="container pt-5">
     <div class="pt-5">
+        <h1 >使用者管理</h1>
         <div>
-            <button class='btn btn-primary' onclick='userAdd(this)'>新增</button>
+            <button class='btn btn-primary pull-right' onclick='userAdd(this)'>新增</button>
         </div>
-        <div class="pt-3">
-            <table class="table" id='usertable'>
+        <div class="pt-5">
+            <table class="table table-hover table-bordered" id='userstable'>
                 <thead>
                     <tr>
                         <th scope="col">使用者名稱</th>
@@ -38,5 +39,5 @@
 
     </div>
 </div>
-@include('admin.userModal')
+@include('admin.users.userModal')
 @endsection

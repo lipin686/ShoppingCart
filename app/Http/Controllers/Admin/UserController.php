@@ -14,7 +14,7 @@ class UserController extends Controller
     {
 
         $users = User::all();
-        return view('admin.user', compact('users'));
+        return view('admin.users.users', compact('users'));
     }
     public function store(Request $request)
     {
@@ -47,7 +47,7 @@ class UserController extends Controller
     {
         
         User::find($id)->delete();
-        //return redirect()->route('users.index');
+        //return redirect()->route('users.index'); 
     }
     public function edit()
     {

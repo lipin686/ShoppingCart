@@ -3,11 +3,12 @@
 @section('content')
 <div class="container pt-5">
     <div class="pt-5">
+        <h1 >商品管理</h1>
         <div>
-            <button class='btn btn-primary' onclick='itemAdd(this)'>新增</button>
+            <button class='btn btn-primary pull-right' onclick='itemAdd(this)'>新增</button>
         </div>
-        <div class="pt-3">
-            <table class="table" id='itemtable'>
+        <div class="pt-5">
+            <table class="table table-hover table-bordered" id='itemstable'>
                 <thead>
                     <tr>
                         <th scope="col">商品名稱</th>
@@ -40,5 +41,5 @@
 
     </div>
 </div>
-@include('admin.itemModal')
+@include('admin.items.itemModal')
 @endsection
