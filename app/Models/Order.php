@@ -7,7 +7,7 @@ use App\Models\Item;
 class Order extends Model
 {
     //protected $table='orders';
-    protected $fillable=['user_id','name','phone','address','cart','comment'];
+    protected $fillable=['user_id','name','phone','address','cart','comment','uuid'];
 
     // public function items(){
     //     return $this->belongsToMany(Item::class)->withTimestamps()->withPivot('qty');
