@@ -4,7 +4,7 @@
 
 	<!-- .navbar-brand 左上LOGO位置 -->
 	<a class="navbar-brand" href="/">
-		<img src="{{asset('images/cat.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+		<img src="{{asset('storage/aaa.jpg')}}" width="30" height="30" class="d-inline-block align-top" alt="">
 		<span class="h3 mx-1">杯波ㄟ亂來網頁</span>
 	</a>
 	<!-- .navbar-toggler 漢堡式選單按鈕 -->

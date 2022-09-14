@@ -3,11 +3,20 @@
 @section('content')
 <div class="container pt-5">
     <div class="pt-5">
-        <h1 >商品管理</h1>
+        <h1>商品管理</h1>
         <div>
             <button class='btn btn-primary pull-right' onclick='itemAdd(this)'>新增</button>
         </div>
         <div class="pt-5">
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+            @endif
             <table class="table table-hover table-bordered" id='itemstable'>
                 <thead>
                     <tr>
@@ -24,7 +33,7 @@
                     @foreach ($items as $item)
                     <tr class="data-row">
                         <td class="title">{{$item->title}}</td>
-                        <td class="pic">{{$item->pic}}</td>
+                        <td class="pic"><button class="btn btn-link" data-pic='{{$item->pic}}' onclick='previewImage(this)'>檢視照片</button></td>
                         <td class="price">{{$item->price}}</td>
                         <td class="totle">{{$item->totle}}</td>
                         <td>{{$item->created_at}}</td>
@@ -38,7 +47,6 @@
                 </tbody>
             </table>
         </div>
-
     </div>
 </div>
 @include('admin.items.itemModal')

@@ -23,6 +23,10 @@ class LoginController extends Controller
         return view('admin.login');
     }
 
+    // protected function authenticated(Request $request, $user)  登入後的轉址 跟上面redirectTo一樣
+    // { 
+    //     return redirect(route('home')); 
+    // }
     protected function guard()
     {
         return Auth::guard('admin');

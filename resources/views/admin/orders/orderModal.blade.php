@@ -25,8 +25,6 @@
                         <label class="col-form-label" for="modal-edit-address">地址</label>
                         <input type="text" name="modal-edit-address" class="form-control" id="modal-edit-address" value="{{$order->address}}" required>
 
-                        <label class="col-form-label" for="modal-edit-totle">商品</label>
-                               
                     </div>
                 </div>
             </div>
@@ -34,7 +32,6 @@
                 <button type="button" class="btn btn-primary" data-dismiss="modal">編輯</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
             </div>
-            </form>
         </div>
     </div>
 </div>

@@ -65,9 +65,9 @@ class OrderController extends Controller
 
             //基本參數(請依系統規劃自行調整)
             $MerchantTradeNo = $uuid_temp;
-            $obj->Send['ReturnURL']         = "http://shoppingcart.com/callback";    //付款完成通知回傳的網址
-            $obj->Send['PeriodReturnURL']         = " http://shoppingcart.com/callback" ;    //付款完成通知回傳的網址
-            $obj->Send['ClientBackURL'] = " http://shoppingcart.com/success" ;    //付款完成通知回傳的網址
+            $obj->Send['ReturnURL']         = "https://shoppingcart.com/callback";    //付款完成通知回傳的網址
+            $obj->Send['PeriodReturnURL']   = "https://shoppingcart.com/callback";    //付款完成通知回傳的網址
+            $obj->Send['ClientBackURL']     = "https://shoppingcart.com/success";    //付款完成通知回傳的網址
             $obj->Send['MerchantTradeNo']   = $MerchantTradeNo;                          //訂單編號
             $obj->Send['MerchantTradeDate'] = date('Y/m/d H:i:s');                       //交易時間
             $obj->Send['TotalAmount']       = $cart->totalPrice;                                      //交易金額
@@ -116,20 +116,20 @@ class OrderController extends Controller
         $obj->SendExtend['InvType'] = ECPay_InvType::General;
         */
 
-            if (session()->has('cart')) {
-                session()->forget('cart');
-            }
+            
             //產生訂單(auto submit至ECPay)
             $obj->CheckOut();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
+        
+        session()->forget('cart');
+        
         //return redirect()->action('OrderController@index');
     }
-    public function callback()
+    public function callback(Request $request)
     {
-        
-        $order = Order::where('uuid', '=', request('MerchantTradeNo'))->firstOrFail();
+        $order = Order::where('uuid', '=', $request->MerchantTradeNo)->firstOrFail();
         $order->paid = !$order->paid;
         $order->save();
     }

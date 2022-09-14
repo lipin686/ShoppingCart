@@ -36,10 +36,14 @@ class UserController extends Controller
     }
     public function update(Request $request)
     {
+        
         $user = User::find($request->input('modal-edit-id'));
         $user->name = $request->input('modal-edit-name');
         $user->email = $request->input('modal-edit-email');
-        $user->password = Hash::make($request->input('modal-edit-password'));
+        if($request->input('modal-edit-password')){
+            $user->password = Hash::make($request->input('modal-edit-password'));
+        }
+        
         $user->save();
         return redirect()->route('users.index');
     }

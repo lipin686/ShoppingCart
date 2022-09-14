@@ -4,7 +4,7 @@
 
 	<!-- .navbar-brand 左上LOGO位置 -->
 	<a class="navbar-brand" href="/">
-		<img src="{{asset('images/cat.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
+		<img src="{{asset('storage/cat.png')}}" width="30" height="30" class="d-inline-block align-top" alt="">
 		<span class="h3 mx-1">杯波ㄟ亂來網頁</span>
 	</a>
 	<!-- .navbar-toggler 漢堡式選單按鈕 -->
@@ -37,16 +37,16 @@
 		</ul>
 		<ul class="navbar-nav ml-auto">
 
-			@guest
+			@guest('admin')
 			<li class="nav-item"><a class="nav-link" href="/admin/login">登入</a></li>
 			@else
 			<li class="nav-item dropdown">
 				<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-					{{ Auth::user()->name }}
+					{{  Auth::guard('admin')->user()->name}}
 					<span class="caret"></span>
 				</a>
 				<div class="dropdown-menu" role="menu">
-					<a class="dropdown-item" href="/admin/logout">退出a</a>
+					<a class="dropdown-item" href="/admin/logout">退出</a>
 				</div>
 			</li>
 			@endguest
@@ -71,5 +71,4 @@
 			</button>
 		</form> -->
 	</div>
-
 </nav>

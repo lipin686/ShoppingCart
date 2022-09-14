@@ -22,7 +22,7 @@ Route::get( '/auth/{social}/callback', 'Web\AuthenticationController@getSocialCa
     ->middleware('guest');
 
 //admin頁面和登入
-Route::get('admin', 'AdminController@index')->name('admin.index');
+Route::get('admin', 'AdminController@index')->name('admin.index')->middleware('auth:admin');
 Route::get('admin/login', 'Admin\LoginController@showLoginForm')->name('admin.login');
 Route::post('admin/login', 'Admin\LoginController@login');
 Route::get('admin/register', 'Admin\RegisterController@showRegistrationForm')->name('admin.register');

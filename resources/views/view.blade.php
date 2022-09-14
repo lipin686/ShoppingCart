@@ -13,7 +13,7 @@
     <div class="row">
         <div class='col-6'>
             <div class="d-inline-block">
-                <img src="/images/{{$item['pic']}}">
+                <img src="/storage/{{$item['pic']}}">
             </div>
         </div>
         <div class='col-6' stlye='position: relative;'>

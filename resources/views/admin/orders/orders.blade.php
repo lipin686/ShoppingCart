@@ -1,4 +1,4 @@
-@extends('admin/layouts/master')
+@extends('admin.layouts.master')
 
 @section('title', '檢視訂單')
 
