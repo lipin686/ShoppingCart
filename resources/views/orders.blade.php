@@ -3,7 +3,7 @@
 @section('title', '檢視訂單')
 
 @section('content')
-<section class="container pt-5">
+<section class="container">
     <div class="">
         <h1 class="pt-5">訂單檢視</h1>
     

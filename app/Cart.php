@@ -12,14 +12,14 @@ class Cart
     {
         if ($oldCart) {
             $this->items      = $oldCart->items;
-            $this->totalQty = $oldCart->totalQty;
+            $this->totalQty   = $oldCart->totalQty;
             $this->totalPrice = $oldCart->totalPrice;
         }
     }
 
-    public function add($item, $id)
+    public function add($item, $id,$count)
     {
-        // 如果購物車沒有商品 設定該商品初始價錢等狀態
+        //如果購物車沒有商品 設定該商品初始價錢等狀態
         $storedItem = ['qty' => 0, 'price' => $item->price, 'item' => $item];
         // 如果購物車裡面已經有商品
         if ($this->items) {
@@ -29,15 +29,15 @@ class Cart
             }
         }
         // 把商品+1
-        $storedItem['qty']++;
+        $storedItem['qty']+= $count;
         // 商品價格*數量
         $storedItem['price'] = $item->price * $storedItem['qty'];
         // 把物件內的原商品狀態更新
         $this->items[$id] = $storedItem;
         // 更新總數量
-        $this->totalQty++;
+        $this->totalQty+= $count;
         // 更新總價錢
-        $this->totalPrice += $item->price;
+        $this->totalPrice += $item->price * $count;
     }
 
     public function increaseByOne($id)

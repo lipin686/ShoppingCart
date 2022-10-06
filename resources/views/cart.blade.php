@@ -3,8 +3,8 @@
 @section('title', '購物車')
 
 @section('content')
-<section class="container pt-5">
-    <div class="pt-5">
+<section class="container ">
+    <div class="">
         <h1 class="">你的購物車</h1>
         @if(session()->has('cart'))
         <table class="table table-secondary table-striped table-hover table-bordered">

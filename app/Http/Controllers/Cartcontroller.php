@@ -15,7 +15,7 @@ class CartController extends Controller
         $item = Item::findOrFail($id);
         return view('view', compact('item'));
     }
-    public function getAddToCart($id)
+    public function getAddToCart($id,$count)
     {
         Session::put('item_id',  $id);
         if (Auth::guest()) {
@@ -24,7 +24,7 @@ class CartController extends Controller
             $item = Item::findOrFail($id);
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
-            $cart->add($item, $item->id);
+            $cart->add($item, $item->id,$count);
             Session::put('cart', $cart);
             return redirect()->route('view', $id);
         }
@@ -43,7 +43,7 @@ class CartController extends Controller
             ]);
         }
     }
-
+    
     public function increaseByOne($id)
     {
         $cart = new Cart(Session::get('cart'));

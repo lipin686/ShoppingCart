@@ -172,4 +172,6 @@
         $('#previewImageList').attr("src", '/storage/' + e.dataset.pic);
         $('#previewImage-modal').modal('show');
     }
+
 </script>
+

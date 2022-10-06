@@ -15,12 +15,21 @@
 
 	<!-- .collapse.navbar-collapse 用於外層中斷點群組和隱藏導覽列內容 -->
 	<!-- 選單項目&漢堡式折疊選單 -->
+
 	<div class="collapse navbar-collapse" id="">
-	
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<div class="form-inline my-2 my-lg-0">
+					<input class="form-control mr-sm-2 ml-sm-5" style='width:500px;' id='inputSearch' type="text" name='Search' placeholder="Search" aria-label="Search">
+					<button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="Search(this)">Search
+					</button>
+				</div> 
+			</li>
+		</ul>
 		<ul class="navbar-nav ml-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="/cart">購物車
-					<div class="circle "> 
+					<div class="circle ">
 						<span class="p-2 ">
 							@if(session()->has('cart'))
 							{{session()->get('cart')->totalQty}}
@@ -67,11 +76,7 @@
 		</div>
 		@endif -->
 
-		<!-- <form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search
-			</button>
-		</form> -->
+
 	</div>
 
 </nav>

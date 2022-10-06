@@ -3,7 +3,7 @@
 @section('title', '訂單頁面')
 
 @section('content')
-<section class="container pt-5">
+<section class="container ">
     <h1 class="pt-5">訂單頁面</h1>
     <h3 class="pt-3">訂單資訊</h3>
     <table class="table  table-striped table-hover table-bordered">

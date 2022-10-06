@@ -1,6 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
+
 <div class="container pt-5">
     <div class="pt-5">
         <h1>商品管理</h1>
@@ -48,6 +49,11 @@
             </table>
         </div>
     </div>
+</div>
+<div class=" my-2 my-lg-0">
+    <input class="mr-sm-2 ml-sm-5" style='width:550px;' type="text" name='Search' placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" onclick="aaaa(this)">Search
+    </button>
 </div>
 @include('admin.items.itemModal')
 @endsection

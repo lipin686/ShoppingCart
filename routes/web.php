@@ -12,7 +12,7 @@
 */
 
 //首頁和登入
-Route::get('/', 'IndexController@showProfile');
+Route::get('/', 'IndexController@showProfile')->name('indexpage');
 Auth::routes();
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 //第三方登入
@@ -41,7 +41,7 @@ Route::resource('/admin/orders', 'Admin\OrderController');
 
 //購物車
 Route::get('/view/{id}', 'CartController@index')->name('view');
-Route::get('/add_to_cart/{id}', 'CartController@getAddToCart')->name('getAddToCart');
+Route::get('/add_to_cart/{id}/{count}', 'CartController@getAddToCart')->name('getAddToCart');
 Route::get('/cart', 'CartController@cart')->name('cart');
 Route::get('/increase-one-item/{id}', 'CartController@increaseByOne');
 Route::get('/decrease-one-item/{id}', 'CartController@decreaseByOne');
@@ -56,4 +56,5 @@ Route::post('/orders', 'OrderController@store');
 Route::post('/callback', 'OrderController@callback');
 Route::get('/success', 'OrderController@redirectFromECpay');
 
-
+Route::get('/Search/{keyword}', 'IndexController@Search');
+Route::get('/Search', 'IndexController@SearchBackIndex');
