@@ -4,4 +4,5 @@ composer install
 php artisan key:generate
 php artisan migrate --seed
 
-![image](https://user-images.githubusercontent.com/72752709/200163390-6bf14711-7b2c-44e1-af66-97ac96ea2877.png)
+
+![image](https://user-images.githubusercontent.com/72752709/200163437-c2c26431-b208-43f4-be54-8a439e17b8af.png)
