@@ -20,4 +20,10 @@ class IndexController extends Controller
     public function SearchBackIndex(){
         return $this->service->SearchBackIndex();  
     }
+    public function newitems(){
+        return $this->service->newitems();  
+    }
+    public function Iphone14(){
+        return $this->service->Iphone14();  
+    }
 }

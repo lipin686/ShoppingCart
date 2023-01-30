@@ -5,7 +5,11 @@
 @section('content')
 <section class="container ">
     <div class="">
+    @isset($err)
+            <div id=''style='position:absolute;right:10;bottom:85%;color:red;'>{{$err}}</div>
+        @endisset
         <h1 class="">你的購物車</h1>
+        
         @if(session()->has('cart'))
         <table class="table table-secondary table-striped table-hover table-bordered">
             <thead>

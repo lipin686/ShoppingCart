@@ -52,9 +52,13 @@ Route::get('/clear-cart', 'CartController@clearCart');
 Route::get('/order/new', 'OrderController@new');
 Route::get('/orders', 'OrderController@index');
 Route::post('/orders', 'OrderController@store');
-
 Route::post('/callback', 'OrderController@callback');
 Route::get('/success', 'OrderController@redirectFromECpay');
 
+//搜尋
 Route::get('/Search/{keyword}', 'IndexController@Search');
 Route::get('/Search', 'IndexController@SearchBackIndex');
+
+//輪播
+Route::get('/Iphone14', 'IndexController@Iphone14');
+Route::get('/newitems', 'IndexController@newitems');

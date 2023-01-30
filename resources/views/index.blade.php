@@ -14,7 +14,7 @@
                 <a class='btn' href='/newitems'><img src="{{asset('storage/new_items.jpg')}}" class="d-block w-100" alt=""></a>
             </div>
             <div class="carousel-item">
-                <a class='btn' href='/iPhone14'><img src="{{asset('storage/carousel_iPhone14.jpg')}}" class="d-block w-100" alt=""></a>
+                <a class='btn' href='/Iphone14'><img src="{{asset('storage/carousel_iPhone14.jpg')}}" class="d-block w-100" alt=""></a>
             </div>
 
         </div>

@@ -4,11 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Order;
+use App\Models\Item;
 use App\Cart;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use \ECPay_PaymentMethod as ECPayMethod;
 use \ECPay_AllInOne as ECPay;
+
 class OrderController extends Controller
 {
     public function index()
@@ -38,8 +41,7 @@ class OrderController extends Controller
             'address' => 'required',
         ]);
         $cart = session()->get('cart');
-        $uuid_temp = str_replace("-", "",substr(Str::uuid()->toString(), 0,18));
-
+        $uuid_temp = str_replace("-", "", substr(Str::uuid()->toString(), 0, 18));
         $order = Order::create([
             'user_id' => Auth::id(),
             'name' => request('name'),
@@ -49,8 +51,21 @@ class OrderController extends Controller
             'comment' => "",
             'uuid' => $uuid_temp,
         ]);
-
-        
+        $cart = new Cart(Session::get('cart'));
+        print_r($cart->items);
+        // exit;
+        // foreach ($cart as $a => $arr) {
+        //     echo $a;
+            // print_r($arr);
+            // exit;
+            foreach ($cart->items as $id =>$value) {
+                $qty = $cart->getQty($id);
+                $item = Item::findOrFail($id);
+                $item->totle=$item->totle-$qty;
+                $item->save();
+            }
+        // }
+// exit;
         try {
 
             $obj = new ECPay();
@@ -116,15 +131,15 @@ class OrderController extends Controller
         $obj->SendExtend['InvType'] = ECPay_InvType::General;
         */
 
-            
+
             //產生訂單(auto submit至ECPay)
             $obj->CheckOut();
         } catch (Exception $e) {
             echo $e->getMessage();
         }
-        
+
         session()->forget('cart');
-        
+
         //return redirect()->action('OrderController@index');
     }
     public function callback(Request $request)
@@ -134,7 +149,8 @@ class OrderController extends Controller
         $order->save();
     }
 
-    public function redirectFromECpay () {
+    public function redirectFromECpay()
+    {
         session()->flash('success', 'Order success!');
         return redirect('/');
     }

@@ -71,4 +71,14 @@ class Cart
         // 釋放商品
         unset($this->items[$id]);
     }
+    public function getQty($id)
+    {
+        if ($this->items) {
+            if (array_key_exists($id, $this->items)) {
+                return $this->items[$id]['qty'];
+            }
+        }
+        return 0;
+    }
+   
 }
