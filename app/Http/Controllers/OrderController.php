@@ -52,18 +52,18 @@ class OrderController extends Controller
             'uuid' => $uuid_temp,
         ]);
         $cart = new Cart(Session::get('cart'));
-        print_r($cart->items);
+        #print_r($cart->items);
         // exit;
         // foreach ($cart as $a => $arr) {
         //     echo $a;
             // print_r($arr);
             // exit;
-            foreach ($cart->items as $id =>$value) {
-                $qty = $cart->getQty($id);
-                $item = Item::findOrFail($id);
-                $item->totle=$item->totle-$qty;
-                $item->save();
-            }
+        foreach ($cart->items as $id =>$value) {
+            $qty = $cart->getQty($id);
+            $item = Item::findOrFail($id);
+            $item->totle=$item->totle-$qty;
+            $item->save();
+        }
         // }
 // exit;
         try {
