@@ -77,7 +77,7 @@ return [
         'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
-        ],
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
@@ -121,5 +121,5 @@ return [
     */
 
     'password_timeout' => 10800,
-
+    
 ];
